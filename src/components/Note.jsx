@@ -1,10 +1,10 @@
 import './note.css';
 
-export default function Note () {
+export default function Note ({ title, content }) {
     return (
         <div className='note'>
-            <h1>This is note title</h1>
-            <p>This is note content</p>
+            <h1>{title}</h1>
+            <p>{content}</p>
         </div>
     );
 }
