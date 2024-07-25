@@ -1,4 +1,5 @@
 import './scss/note.scss';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function Note ({ id, title, content, delBtnClick}) {
     return (
@@ -6,7 +7,7 @@ export default function Note ({ id, title, content, delBtnClick}) {
             <h1>{title}</h1>
             <p>{content}</p>
             <button onClick={() => delBtnClick(id)}>
-                DELETE
+                <DeleteIcon />
             </button>
         </div>
     );
