@@ -9,7 +9,8 @@ function App() {
   const [notesLst, setNotesLst] = useState([]);
 
   function addNote (inputText){
-    setNotesLst( prevNotes => [...prevNotes, inputText]);
+    const {title, content} = inputText;
+    (title && content) && setNotesLst( prevNotes => [...prevNotes, inputText]);
   }
 
   function deleteNote (id) {
