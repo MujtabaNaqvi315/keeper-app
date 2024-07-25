@@ -1,5 +1,8 @@
 import './scss/createarea.scss';
 import { useState } from 'react';
+import AddIcon from '@mui/icons-material/Add';
+import { Fab } from "@mui/material";
+import { Zoom } from '@mui/material';
  
 function CreateArea({ addBtnClick }) {
 
@@ -7,6 +10,7 @@ function CreateArea({ addBtnClick }) {
         title: "",
         content: ""
     });
+    const [isContentClicked, setIsContentClicked] = useState(false);
 
     function handleChange (e) {
         const {name, value} = e.target;
@@ -18,34 +22,41 @@ function CreateArea({ addBtnClick }) {
         });
     }
 
+    function handleContentClick () {
+        setIsContentClicked(true)
+    }
+
     return (
       <div>
-        <form className='form'>
-          <input 
+        <form className='form create-note'>
+          {isContentClicked && <input 
             name="title" 
             placeholder="Title"
             value={inputText.title}
             onChange={handleChange}
-          />
+          />}
           <textarea 
             name="content" 
             placeholder="Take a note..." 
-            rows="3"
+            rows={isContentClicked ? 3 : 1}
             value={inputText.content}
             onChange={handleChange}
+            onClick={handleContentClick}
           />
-          <button
-            onClick={(e) => {
-                addBtnClick(inputText);
-                setInputText({
-                    title: "",
-                    content: ""
-                })
-                e.preventDefault();
-            }}
-          >
-            Add
-        </button>
+          <Zoom in={isContentClicked}>
+            <Fab
+                onClick={(e) => {
+                    addBtnClick(inputText);
+                    setInputText({
+                        title: "",
+                        content: ""
+                    })
+                    e.preventDefault();
+                }}
+            >
+                <AddIcon />
+            </Fab>
+          </Zoom>
         </form>
       </div>
     );
