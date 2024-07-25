@@ -1,4 +1,4 @@
-import './footer.css';
+import './scss/footer.scss';
 
 export default function Footer () {
     const date = new Date();
