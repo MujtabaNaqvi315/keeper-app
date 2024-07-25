@@ -19,8 +19,8 @@ function CreateArea({ addBtnClick }) {
     }
 
     return (
-      <div className='form'>
-        {/* <form> */}
+      <div>
+        <form className='form'>
           <input 
             name="title" 
             placeholder="Title"
@@ -35,17 +35,18 @@ function CreateArea({ addBtnClick }) {
             onChange={handleChange}
           />
           <button
-            onClick={() => {
+            onClick={(e) => {
                 addBtnClick(inputText);
                 setInputText({
                     title: "",
                     content: ""
                 })
+                e.preventDefault();
             }}
           >
             Add
         </button>
-        {/* </form> */}
+        </form>
       </div>
     );
   }
