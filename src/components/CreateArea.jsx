@@ -42,6 +42,24 @@ function CreateArea({ addBtnClick }) {
             value={inputText.content}
             onChange={handleChange}
             onClick={handleContentClick}
+            onKeyDown={e => {
+              if (e.key === "Enter" && e.shiftKey){
+                console.log("Enter + Shift pressed");
+                setInputText(prevValue => {
+                  console.log("Previous content:", prevValue.content);
+                  const newContent = prevValue.content + "\n";
+                  console.log("New content:", newContent);
+                  return {
+                    ...prevValue,
+                    content: inputText.content + "\n"
+                  }
+                })
+              } 
+              else if (e.key === "Enter"){
+                console.log("Enter pressed, preventing default");
+                e.preventDefault();
+              }
+            }}
           />
           <Zoom in={isContentClicked}>
             <Fab
