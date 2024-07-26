@@ -34,6 +34,15 @@ function CreateArea({ addBtnClick }) {
             placeholder="Title"
             value={inputText.title}
             onChange={handleChange}
+            onKeyDown={e => {
+              if (e.key === "Enter"){
+                addBtnClick(inputText);
+                setInputText({
+                    title: "",
+                    content: ""
+                })
+              }
+            }}
           />}
           <textarea 
             name="content" 
@@ -58,6 +67,11 @@ function CreateArea({ addBtnClick }) {
               else if (e.key === "Enter"){
                 console.log("Enter pressed, preventing default");
                 e.preventDefault();
+                addBtnClick(inputText);
+                setInputText({
+                    title: "",
+                    content: ""
+                })
               }
             }}
           />
