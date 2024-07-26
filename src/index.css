@@ -11,3 +11,9 @@
     background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
     padding: 0 16px;
   }
+  #root{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
