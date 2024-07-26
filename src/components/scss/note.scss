@@ -2,10 +2,10 @@
   background: #fff;
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
-  padding: 10px;
+  padding: 10px 50px 10px 10px;
   width: 240px;
   margin: 16px;
-  float: left;
+  position: relative;
 
   h1 {
     font-size: 1.1em;
@@ -20,9 +20,9 @@
   }
 
   button {
-    position: relative;
-    float: right;
-    margin-right: 10px;
+    position: absolute;
+    left: 83%;
+    bottom: 10px;
     color: #f5ba13;
     border: none;
     width: 36px;
