@@ -28,7 +28,7 @@ function CreateArea({ addBtnClick }) {
 
     return (
       <div>
-        <form className='form create-note'>
+        <form onSubmit={e => { e.preventDefault(); }} className='form create-note'>
           {isContentClicked && <input 
             name="title" 
             placeholder="Title"
@@ -45,13 +45,12 @@ function CreateArea({ addBtnClick }) {
           />
           <Zoom in={isContentClicked}>
             <Fab
-                onClick={(e) => {
+                onClick={() => {
                     addBtnClick(inputText);
                     setInputText({
                         title: "",
                         content: ""
                     })
-                    e.preventDefault();
                 }}
             >
                 <AddIcon />
