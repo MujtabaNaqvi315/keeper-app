@@ -53,19 +53,19 @@ function CreateArea({ addBtnClick }) {
             onClick={handleContentClick}
             onKeyDown={e => {
               if (e.key === "Enter" && e.shiftKey){
-                console.log("Enter + Shift pressed");
+                // console.log("Enter + Shift pressed");
                 setInputText(prevValue => {
-                  console.log("Previous content:", prevValue.content);
-                  const newContent = prevValue.content + "\n";
-                  console.log("New content:", newContent);
+                  // console.log("Previous content:", prevValue.content);
+                  // const newContent = prevValue.content + "\n";
+                  // console.log("New content:", newContent);
                   return {
                     ...prevValue,
-                    content: inputText.content + "\n"
+                    content: inputText.content
                   }
                 })
               } 
               else if (e.key === "Enter"){
-                console.log("Enter pressed, preventing default");
+                // console.log("Enter pressed, preventing default");
                 e.preventDefault();
                 addBtnClick(inputText);
                 setInputText({
@@ -73,6 +73,28 @@ function CreateArea({ addBtnClick }) {
                     content: ""
                 })
               }
+
+              // if (e.key === "Enter") {
+              //   e.preventDefault(); // Prevent the default behavior of Enter key
+            
+              //   if (e.shiftKey) {
+              //     setInputText(prevValue => {
+              //       console.log("Previous content:", prevValue.content);
+              //       const newContent = prevValue.content + "\n";
+              //       console.log("New content:", newContent);
+              //       return {
+              //         ...prevValue,
+              //         content: newContent
+              //       };
+              //     });
+              //   } else {
+              //     addBtnClick(inputText);
+              //     setInputText({
+              //       title: "",
+              //       content: ""
+              //     });
+              //   }
+              // }
             }}
           />
           <Zoom in={isContentClicked}>
